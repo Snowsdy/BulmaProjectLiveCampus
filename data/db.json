@@ -16,8 +16,8 @@
   "comments": [
     {
       "id": 1,
-      "isPartOf": 1,
-      "content": "J'ai réussi à te modifier !!!"
+      "content": "J'ai réussi à te modifier !!!",
+      "isPartOf": 1
     },
     {
       "id": 2,

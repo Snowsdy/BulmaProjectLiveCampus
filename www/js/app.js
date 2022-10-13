@@ -17,13 +17,13 @@
  * @param {string} url - the URL of the API. Ex : http://localhost/posts
  */
 const getAll = (url) => {
-    getFetch(
+    return getFetch(
         url,
         'get'
     )
         .then((fetchSuccess) => {
             console.log('[DEBUG] getFetch Success', fetchSuccess);
-            // TODO : ?
+            return fetchSuccess;
         }, (fetchError) => {
             console.log('[DEBUG] ASYNCFetch Error', fetchError);
         });
@@ -35,7 +35,7 @@ const getAll = (url) => {
  * @param {number} dataId - The Id of the article
  */
 const getById = (url, dataId) => {
-    getFetch(
+    return getFetch(
         url,
         'get',
         {
@@ -44,7 +44,7 @@ const getById = (url, dataId) => {
     )
         .then((fetchSuccess) => {
             console.log('[DEBUG] getFetch Success', fetchSuccess);
-            // TODO : ?
+            return fetchSuccess;
         }, (fetchError) => {
             console.log('[DEBUG] ASYNCFetch Error', fetchError);
         });
@@ -55,22 +55,37 @@ const getById = (url, dataId) => {
  * @param {string} url - the URL of the API. Ex : http://localhost/posts
  * @param {Object} dataObject
  * 
- * POSTS : {id,title,category,content}
+ * POSTS : {id,title,category(not necessary),content}
  * 
- * COMMENTS : {id,isPartOf,content}
+ * COMMENTS : {id,isPartOf(not necessary),content}
  */
 const updateById = (url, dataObject) => {
-    getFetch(
-        url,
-        'put',
-        dataObject
-    )
-        .then((fetchSuccess) => {
-            console.log('[DEBUG] getFetch Success', fetchSuccess);
-            // TODO : ?
-        }, (fetchError) => {
-            console.log('[DEBUG] ASYNCFetch Error', fetchError);
-        });
+    const obj = getById(url, dataObject.id);
+
+    obj.then((fetchSuccess) => {
+        // Comments
+        if (dataObject.isPartOf === undefined) {
+            dataObject.isPartOf = fetchSuccess.isPartOf;
+        }
+        // Posts
+        if (dataObject.category === undefined) {
+            dataObject.category = fetchSuccess.category;
+        }
+
+        return getFetch(
+            url,
+            'put',
+            dataObject
+        )
+            .then((fetchSuccess) => {
+                console.log('[DEBUG] getFetch Success', fetchSuccess);
+                return fetchSuccess;
+            }, (fetchError) => {
+                console.log('[DEBUG] ASYNCFetch Error', fetchError);
+            });
+    }, (fetchError) => {
+        console.log('[DEBUG] ASYNCFetch Error', fetchError);
+    });
 }
 
 /**
@@ -81,7 +96,7 @@ const updateById = (url, dataObject) => {
  * @param {string} dataContent - The content of the article
  */
 const create = (url, dataTitle, dataCategory, dataContent) => {
-    getFetch(
+    return getFetch(
         url,
         'post',
         {
@@ -92,7 +107,7 @@ const create = (url, dataTitle, dataCategory, dataContent) => {
     )
         .then((fetchSuccess) => {
             console.log('[DEBUG] getFetch Success', fetchSuccess);
-            // TODO : ?
+            return fetchSuccess;
         }, (fetchError) => {
             console.log('[DEBUG] ASYNCFetch Error', fetchError);
         });
@@ -147,13 +162,16 @@ const initNavigation = () => {
 document.addEventListener('DOMContentLoaded', async ev => {
     console.log('[DEBUG] DOM is loaded');
 
+    //Begin Initialization :
+    initNavigation();
+
     // ALL WORKED WELLLLLLL
-    // getAll('http://localhost:3000/comments');
-    // getById('http://localhost:3000/comments', 1);
-    // updateById('http://localhost:3000/comments', {
+    // const promise =getAll('http://localhost:3000/comments');
+    // const promise =getById('http://localhost:3000/comments', 1); 
+    // const promise = updateById('http://localhost:3000/comments', {
     //     id: 1,
-    //     isPartOf: 1,
     //     content: `J'ai réussi à te modifier !!!`
     // });
+    // console.log(promise);
 })
 /**/
