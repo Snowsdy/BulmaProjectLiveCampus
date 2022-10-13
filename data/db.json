@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "title": "First Article",
+      "category": "js",
+      "content": "This is my first article !",
+      "id": 1
+    },
+    {
+      "title": "Second Article",
+      "category": "css",
+      "content": "This is my second article !",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "isPartOf": 1,
+      "comment": "Very cool !"
+    },
+    {
+      "id": 2,
+      "isPartOf": 1,
+      "comment": "Very cool !"
+    },
+    {
+      "id": 3,
+      "isPartOf": 2,
+      "comment": "Very cool !"
+    }
+  ]
+}
