@@ -49,9 +49,9 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item"> Home </a>
+            <a class="navbar-item link" id="home-page"> Home </a>
 
-            <a class="navbar-item"> Article </a>
+            <a class="navbar-item link" id="add-post-page"> Add Post </a>
           </div>
 
           <div class="navbar-end">
@@ -70,7 +70,98 @@
     <!-- FIN NAVBAR -->
 
     <!-- MAIN -->
-    <main>Hello World</main>
+    <main class="p-5">
+      <!-- HOME PAGE -->
+      <section class="home-page container is-max-widescreen">
+        <h2 class="title">Home</h2>
+        <p class="subtitle">The Home Page used to show all articles.</p>
+        <hr />
+
+        <!-- POSTS LIST -->
+        <div class="container">
+          <p class="title is-size-4 has-text-centered">Articles</p>
+          <ul id="posts-list" class="list"></ul>
+        </div>
+        <!-- FIN POSTS LIST -->
+      </section>
+      <!-- FIN HOME PAGE -->
+
+      <!-- ADD POST PAGE -->
+      <section class="add-post-page container is-max-widescreen is-hidden">
+        <h2 class="title">Posts</h2>
+        <p class="subtitle">The Posts Page used to manage articles (CRUD).</p>
+        <hr />
+
+        <!-- NOTIFICATION -->
+        <div class="notification is-info add-post-notification is-hidden mb-3">
+          <button class="delete"></button>
+          <p>Article Ajouté avec succès !</p>
+        </div>
+        <!-- FIN NOTIFICATION -->
+
+        <!-- ADD POST FORM -->
+        <form action="#" class="add-post-form">
+          <!-- TITLE INPUT -->
+          <fieldset class="field">
+            <label class="label" for="title">Title</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Title of the Post"
+                required
+                min="2" />
+            </div>
+          </fieldset>
+          <!-- FIN TITLE INPUT -->
+
+          <!-- CATEGORY INPUT -->
+          <fieldset class="field">
+            <label class="label" for="category">Category</label>
+            <div class="control">
+              <div class="select">
+                <select name="category" id="category" required>
+                  <option disabled>Select dropdown</option>
+                  <option value="html" selected>HTML</option>
+                  <option value="css">CSS</option>
+                  <option value="js">JS</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+          <!-- FIN CATEGORY INPUT -->
+
+          <!-- CONTENT INPUT -->
+          <fieldset class="field">
+            <label class="label" for="content">Content</label>
+            <div class="control">
+              <textarea
+                class="textarea"
+                placeholder="Define post content"
+                name="content"
+                id="content"
+                required
+                minlength="2"></textarea>
+            </div>
+          </fieldset>
+          <!-- FIN CONTENT INPUT -->
+
+          <!-- SUBMIT BUTTON -->
+          <fieldset class="field">
+            <div class="control">
+              <button type="submit" class="button is-primary is-fullwidth">
+                Submit
+              </button>
+            </div>
+          </fieldset>
+          <!-- FIN SUBMIT BUTTON -->
+        </form>
+        <!-- FIN ADD POST FORM -->
+      </section>
+      <!-- FIN ADD POST PAGE -->
+    </main>
     <!-- FIN MAIN -->
 
     <!-- FOOTER -->

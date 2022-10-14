@@ -82,4 +82,60 @@ const getFetch = async (url, requestType, dataObject = null) => {
         return Promise.reject(response);
     };
 }
+
+/**
+ * Function which return an objet
+ * @param {string} url - The url
+ * @param  {...any} params - the parameters you want
+ * Example : params = ['id=1', 'isPartOf=2']
+ * @returns {Promise}
+ */
+const getFetchWithParameters = async (url, ...params) => {
+    console.log('[DEBUG] getFetchWithParameters Starting...');
+    // Définition du header de la requête
+    let response = null;
+    let requestHeader = {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    };
+
+    // Build the url
+    for (let index = 0; index < params.length; index++) {
+        const param = params[index];
+        if (index === 0) {
+            url += `?${param}`;
+        } else {
+            url += `&${param}`;
+        }
+    }
+
+    response = await fetch(url, requestHeader);
+
+    // Vérification de la requête
+    if (response.ok) {
+        // Vérification du status de la requête
+        switch (response.status) {
+            case 200:
+                console.log(`Succès de la requête.`);
+                // Extraire les données reçus au format JSON
+                return Promise.resolve(await response.json());
+
+            case 201:
+                console.log(`Succès de la requête.`);
+                // Extraire les données crées au format JSON
+                return Promise.resolve(await response.json());
+
+            default:
+                console.log(`Erreur de traitement de la requête.`);
+                // Renvoyer une Promesse
+                return Promise.reject(response);
+        };
+    } else {
+        // Récupérer le code erreur dans une Promesse
+        console.log(`Erreur de traitement de la requête.`);
+        return Promise.reject(response);
+    };
+}
 /**/
