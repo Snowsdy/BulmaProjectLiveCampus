@@ -78,6 +78,7 @@ const getFetch = async (url, requestType, dataObject = null) => {
         };
     } else {
         // Récupérer le code erreur dans une Promesse
+        console.log(`Erreur de traitement de la requête ${requestType.toUpperCase()}.`);
         return Promise.reject(response);
     };
 }
