@@ -498,7 +498,6 @@ const initNavigation = () => {
             homePage.classList.toggle('is-hidden');
             addPostPage.classList.toggle('is-hidden');
         }
-        clearPosts();
         showArticles();
     });
 

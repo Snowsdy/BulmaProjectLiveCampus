@@ -17,89 +17,13 @@
       "category": "js",
       "content": "This is my third article !",
       "id": 3
-    },
-    {
-      "title": "Ok",
-      "category": "js",
-      "content": "eargagggag",
-      "id": 4
     }
   ],
   "comments": [
     {
-      "id": 1,
-      "content": "J'ai réussi à te modifier !!!",
-      "isPartOf": 1
-    },
-    {
-      "id": 2,
-      "isPartOf": 1,
-      "content": "Very cool !"
-    },
-    {
-      "id": 3,
-      "isPartOf": 2,
-      "content": "Very cool !"
-    },
-    {
-      "isPartOf": "3",
-      "content": "Test",
-      "id": 4
-    },
-    {
-      "isPartOf": "3",
-      "content": "I'm in the first article ?",
-      "id": 5
-    },
-    {
       "isPartOf": "1",
-      "content": "Je suis dans le premier article ?",
-      "id": 6
-    },
-    {
-      "isPartOf": "2",
-      "content": "Je suis dans le deuxième ?",
-      "id": 7
-    },
-    {
-      "isPartOf": "3",
-      "content": "Dans le troisième ?",
-      "id": 8
-    },
-    {
-      "isPartOf": "1",
-      "content": "Test clear ?",
-      "id": 9
-    },
-    {
-      "isPartOf": "2",
-      "content": "Test clear article 2 ?",
-      "id": 10
-    },
-    {
-      "isPartOf": "3",
-      "content": "clear 3 ?",
-      "id": 11
-    },
-    {
-      "isPartOf": "3",
-      "content": "test ?",
-      "id": 12
-    },
-    {
-      "isPartOf": "2",
-      "content": "Refresh ?",
-      "id": 13
-    },
-    {
-      "isPartOf": "4",
-      "content": "Premier commentaire :)",
-      "id": 14
-    },
-    {
-      "isPartOf": "1",
-      "content": "Test",
-      "id": 15
+      "content": "Premier com !",
+      "id": 1
     }
   ]
 }
